@@ -1,0 +1,28 @@
+[{
+    "name": "firstClass",
+    "classList": [{
+        "id": "41a3180c-570f-4546-b648-62ae5db8706e",
+        "firstName": "ABDERRAHIM",
+        "lastName": "BELCAID",
+        "dateOfBirth": "2020-04-10",
+        "gender": "Boy",
+        "guardian": "papa",
+        "phone": "06111111111",
+        "dateOfRegistration": "2020-04-09"
+    }]
+}, {
+    "name": "secondClass",
+    "classList": []
+}, {
+    "name": "thirdClass",
+    "classList": []
+}, {
+    "name": "fourthClass",
+    "classList": []
+}, {
+    "name": "fifthClass",
+    "classList": []
+}, {
+    "name": "sixthClass",
+    "classList": []
+}]

@@ -1,0 +1,256 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>YourSchool</title>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+
+
+</head>
+
+<body>
+
+    </div>
+
+    <div class="page-wrapper chiller-theme toggled">
+        <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
+            <i class="fas fa-bars"></i>
+        </a>
+        <nav id="sidebar" class="sidebar-wrapper">
+            <div class="sidebar-content">
+                <div class="sidebar-brand">
+                    <a href="#">YourSchool</a>
+                    <div id="close-sidebar">
+                        <i class="fas fa-times"></i>
+                    </div>
+                </div>
+                <div class="sidebar-header">
+                    <div class="user-info">
+                        <span class="user-name">Jhon
+                            <strong>Smith</strong>
+                        </span>
+                        <span class="user-role">Administrator</span>
+                    </div>
+                </div>
+                <!-- sidebar-header  -->
+                <div class="sidebar-search">
+                    <div>
+                        <div class="input-group">
+                            <input type="text" class="form-control search-menu" placeholder="Search Student">
+                            <div class="input-group-append">
+                                <span class="input-group-text">
+                                    <i class="fa fa-search" aria-hidden="true"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- sidebar-search  -->
+                <div class="sidebar-menu">
+                    <ul>
+                        <li>
+                            <a href="http://localhost:8080/AddStudent">
+                                <i class="fa fa-book"></i>
+                                <span>Add New student</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-dropdown">
+
+                            <a href="#">
+                                <i class="fas fa-graduation-cap"></i>
+                                <span>List des niveau</span>
+                            </a>
+                            <div class="sidebar-submenu">
+                                <ul>
+
+
+                                    
+                                    <li><a href="/Level/<%=i.name %>"><%= i.name %></a></li>
+                                    <li><a href="/Level/<%=i.name %>"><%= i.name %></a></li>
+                                    <li><a href="/Level/<%=i.name %>"><%= i.name %></a></li>
+                                    <li><a href="/Level/<%=i.name %>"><%= i.name %></a></li>
+                                    <li><a href="/Level/<%=i.name %>"><%= i.name %></a></li>
+                                    <li><a href="/Level/<%=i.name %>"><%= i.name %></a></li>
+                                    <li><a href="/Level/<%=i.name %>"><%= i.name %></a></li>
+                                    
+                                    
+
+                                </ul>
+                            </div>
+                        </li>
+
+
+                    </ul>
+                </div>
+                <!-- sidebar-menu  -->
+            </div>
+            <!-- sidebar-content  -->
+
+        </nav>
+        <!-- sidebar-wrapper  -->
+        <main class="page-content">
+            <div class="container ">
+                <div class="row ">
+                    <div class="col-12 ">
+                        <table class="table table-bordered tab">
+                            <thead>
+                                <tr>
+                                    <!-- <th scope="col">ID</th> -->
+                                    <th scope="col">First Name</th>
+                                    <th scope="col">Last Name</th>
+                                    <th scope="col">Date of birth</th>
+                                    <th scope="col">Gender</th>
+                                    <th scope="col">Guardian's name</th>
+                                    <th scope="col">Phone number</th>
+                                    <th scope="col">Date of registration</th>
+                                    <th scope="col">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <% for(i of currentList){ %>
+                                <tr>
+
+                                    <!-- <td><%= i.id %></td> -->
+                                    <td><%= i.firstName %></td>
+                                    <td><%= i.lastName %></td>
+                                    <td><%= i.dateOfBirth %></td>
+                                    <td><%= i.gender %></td>
+                                    <td><%= i.guardian %></td>
+                                    <td><%= i.phone %></td>
+                                    <td><%= i.dateOfRegistration %></td>
+                                    <td>
+                                        <button type="button" class="btn btn-success" data-target="#exampleModal"><a href="/edit/<%=i.id %>"><i
+                                                    class="fas fa-edit"></i></a></button>
+                                        <button type="button" class="btn btn-danger" data-target="#exampleModal"><a href="/delete/<%=i.id %>"><i
+                                                    class="far fa-trash-alt"></i></a></button>
+                                    </td>
+                                </tr>
+
+                                <%}%>
+
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+        <!-- page-content" -->
+
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+          <div class="text-center">
+            <!-- <button class="btn btn-primary" id="singlebutton"> Add company</button> -->
+            <button type="button" id="singlebutton" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@fat">Get Department Info</button>
+  
+          </div>
+        </div>
+      </div>
+    
+    <div>
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Add new company</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action="/companies" method="POST">
+            <div class="form-group">
+              <label for="recipient-name" class="col-form-label">Name:</label>
+              <input type="text" name="companyName" class="form-control" id="recipient-name">
+            </div>
+            <div class="form-group">
+              <label for="recipient-name" class="col-form-label">Local:</label>
+              <input type="text" name="companyLocal" class="form-control" id="recipient-name">
+            </div>
+            <div class="form-group">
+              <label for="recipient-name" class="col-form-label">Description:</label>
+              <input type="text" name="companyDescription" class="form-control" id="recipient-name">
+            </div>
+            <div class="form-group">
+              <label for="recipient-name" class="col-form-label">Logo</label>
+              <input type="text" name="companyLogo" class="form-control" id="recipient-name">
+            </div>
+  
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary">Add company</button>
+            </div>
+          </form>
+        </div>
+  
+      </div>
+    </div>
+  </div>
+    </div>
+
+
+
+
+    <!-- <script>
+        jQuery(function ($) {
+
+            $(".sidebar-dropdown > a").click(function () {
+                $(".sidebar-submenu").slideUp(200);
+                if (
+                    $(this)
+                    .parent()
+                    .hasClass("active")
+                ) {
+                    $(".sidebar-dropdown").removeClass("active");
+                    $(this)
+                        .parent()
+                        .removeClass("active");
+                } else {
+                    $(".sidebar-dropdown").removeClass("active");
+                    $(this)
+                        .next(".sidebar-submenu")
+                        .slideDown(200);
+                    $(this)
+                        .parent()
+                        .addClass("active");
+                }
+            });
+
+            $("#close-sidebar").click(function () {
+                $(".page-wrapper").removeClass("toggled");
+            });
+            $("#show-sidebar").click(function () {
+                $(".page-wrapper").addClass("toggled");
+            });
+
+
+
+
+        });
+    </script> -->
+    <script src="/js/js.js"></script>
+    <!-- page-wrapper -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+
+</body>
+
+</html>

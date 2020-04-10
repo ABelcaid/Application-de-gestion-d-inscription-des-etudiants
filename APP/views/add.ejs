@@ -1,0 +1,177 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/css/main.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>YourSchool</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+
+
+</head>
+
+<body>
+
+</div>
+
+    <div class="page-wrapper chiller-theme toggled">
+        <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
+            <i class="fas fa-bars"></i>
+        </a>
+        <nav id="sidebar" class="sidebar-wrapper">
+            <div class="sidebar-content">
+                <div class="sidebar-brand">
+                    <a href="#">YourSchool</a>
+                    <div id="close-sidebar">
+                        <i class="fas fa-times"></i>
+                    </div>
+                </div>
+                <div class="sidebar-header">
+                    <div class="user-info">
+                        <span class="user-name">Jhon
+                            <strong>Smith</strong>
+                        </span>
+                        <span class="user-role">Administrator</span>
+                    </div>
+                </div>
+                <!-- sidebar-header  -->
+                <div class="sidebar-search">
+                    <div>
+                        <div class="input-group">
+                            <input type="text" class="form-control search-menu" placeholder="Search Student">
+                            <div class="input-group-append">
+                                <span class="input-group-text">
+                                    <i class="fa fa-search" aria-hidden="true"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- sidebar-search  -->
+                <div class="sidebar-menu">
+                    <ul>
+                        <li>
+                            <a href="http://localhost:8080/AddStudent">
+                              <i class="fa fa-book"></i>
+                              <span>Add New student</span>
+                            </a>
+                          </li>
+                        <li class="sidebar-dropdown">
+                        
+                            <a href="#">
+                                <i class="fas fa-graduation-cap"></i>
+                                <span>school levels</span>
+                            </a>
+                            <div class="sidebar-submenu">
+                                <ul>
+
+                                   <% for(var i of list){ %>
+                                        <li><a href="/Level/<%=i.name %>"><%= i.name %></a></li>
+                                   <% } %>
+                            
+                                </ul>
+                            </div>
+                        </li>
+                    
+                        
+                    </ul>
+                </div>
+                <!-- sidebar-menu  -->
+            </div>
+            <!-- sidebar-content  -->
+
+        </nav>
+        <!-- sidebar-wrapper  -->
+        <main class="page-content">
+            <div class="form">
+                
+                <div>
+                    
+                    <form action="/AddStudent" method="POST">
+                        <div class="row register-form">
+                        
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="firstName" placeholder="First Name *" value="" />
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="lastName" placeholder="Last Name *" value="" />
+                                </div>
+                                <div class="form-group">
+                                    <input required="" type="text" name="dateOfBirth" class="form-control"  placeholder="Date of birth *" onfocus="(this.type='date')"/>
+                                    <!-- <input type="date" class="form-control" placeholder="Date of birth *" value="" /> -->
+                                </div>
+                                <div class="form-group">
+                                    <select name="gender" class="form-control">
+                                        <option class="hidden"  selected disabled>Gender *</option>
+                                        <option>Boy</option>
+                                        <option>Girl</option>
+                                        
+
+                                    </select>
+                                </div>
+                
+                
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="guardian" placeholder="Guardian's name *" value="" />
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="phone" placeholder="Phone number *" value="" />
+                                </div>
+                                <div class="form-group">
+                                    <select  name="className" class="form-control">
+                                        <option class="hidden"  selected disabled>Select the class * </option>
+                                        <option >firstClass</option>
+                                        <option >secondClass</option>
+                                        <option >thirdClass</option>
+                                        <option >fourthClass</option>
+                                        <option >fifthClass</option>
+                                        <option >sixthClass</option>
+
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <input required="" type="text" name="dateOfRegistration" class="form-control" placeholder="Date  of registration *" onfocus="(this.type='date')"/>
+
+                                    <!-- <input type="date" class="form-control textbox-n" onfocus="(this.type='date')" placeholder="Date of registration *" value="" /> -->
+                                    <!-- <input placeholder="Date" class="textbox-n" type="text" onfocus="(this.type='date')" id="date"> -->
+
+                                </div>
+                                <input type="submit" class="btnRegister"  value="Add student"/>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                </div>
+
+        </main>
+        <!-- page-content" -->
+
+    </div>
+
+    
+
+    <script src="/js/js.js"></script>
+
+    <!-- page-wrapper -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+
+</body>
+
+</html>
