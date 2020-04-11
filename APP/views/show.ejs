@@ -36,26 +36,13 @@
                 </div>
                 <div class="sidebar-header">
                     <div class="user-info">
-                        <span class="user-name">Jhon
-                            <strong>Smith</strong>
-                        </span>
+                        <span class="user-name"><strong> Robert downey jr </strong></span>
+
                         <span class="user-role">Administrator</span>
                     </div>
                 </div>
                 <!-- sidebar-header  -->
-                <div class="sidebar-search">
-                    <div>
-                        <div class="input-group">
-                            <input type="text" class="form-control search-menu" placeholder="Search Student">
-                            <div class="input-group-append">
-                                <span class="input-group-text">
-                                    <i class="fa fa-search" aria-hidden="true"></i>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- sidebar-search  -->
+            
                 <div class="sidebar-menu">
                     <ul>
                         <li>
@@ -95,9 +82,11 @@
         <!-- sidebar-wrapper  -->
         <main class="page-content">
             <div class="container ">
+                <h1 style="color: #f8f9fa;padding: 3%"><%=name%> Students List</h1>
+
                 <div class="row ">
                     <div class="col-12 ">
-                        <table class="table table-bordered tab">
+                        <table class="table table-bordered " id="tab">
                             <thead>
                                 <tr>
                                     <!-- <th scope="col">ID</th> -->
@@ -125,9 +114,9 @@
                                     <td><%= i.phone %></td>
                                     <td><%= i.dateOfRegistration %></td>
                                     <td>
-                                        <button type="button" class="btn btn-success" data-target="#exampleModal"><a href="/edit/Level/<%=name%>/<%=i.id %>"><i
+                                        <button type="button" class="btn btn-success" data-target="#exampleModal"><a class="a" href="/edit/Level/<%=name%>/<%=i.id %>"><i
                                                     class="fas fa-edit"></i></a></button>
-                                        <button type="button" class="btn btn-danger" data-target="#exampleModal"><a href="/delete/Level/<%=name%>/<%=i.id %>"><i
+                                        <button type="button" class="btn btn-danger" data-target="#exampleModal"><a class="a" href="/delete/Level/<%=name%>/<%=i.id %>"><i
                                                     class="far fa-trash-alt"></i></a></button>
                                     </td>
                                 </tr>
@@ -145,55 +134,8 @@
         <!-- page-content" -->
 
     </div>
-    <div class="row">
-        <div class="col-sm-12">
-          <div class="text-center">
-            <!-- <button class="btn btn-primary" id="singlebutton"> Add company</button> -->
-            <button type="button" id="singlebutton" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@fat">Get Department Info</button>
-  
-          </div>
-        </div>
-      </div>
     
-    <div>
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Add new company</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <form action="/companies" method="POST">
-            <div class="form-group">
-              <label for="recipient-name" class="col-form-label">Name:</label>
-              <input type="text" name="companyName" class="form-control" id="recipient-name">
-            </div>
-            <div class="form-group">
-              <label for="recipient-name" class="col-form-label">Local:</label>
-              <input type="text" name="companyLocal" class="form-control" id="recipient-name">
-            </div>
-            <div class="form-group">
-              <label for="recipient-name" class="col-form-label">Description:</label>
-              <input type="text" name="companyDescription" class="form-control" id="recipient-name">
-            </div>
-            <div class="form-group">
-              <label for="recipient-name" class="col-form-label">Logo</label>
-              <input type="text" name="companyLogo" class="form-control" id="recipient-name">
-            </div>
-  
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="submit" class="btn btn-primary">Add company</button>
-            </div>
-          </form>
-        </div>
-  
-      </div>
-    </div>
-  </div>
+ 
     </div>
 
 

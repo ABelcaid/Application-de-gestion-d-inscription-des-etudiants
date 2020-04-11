@@ -30,10 +30,14 @@ list=JSON.parse(jsonStudents);
 
 
 app.get('/AddStudent',function(req,res){
+
+    var d = new Date(); 
+          
+    
     
     // console.log(list);
     
-    res.render('add');
+    res.render('add',{y1 : d.getFullYear(), y2 :d.getFullYear() +1});
 });
 
 
@@ -139,6 +143,8 @@ app.get('/edit/Level/:name/:id', (req, res) =>{
     const  id = req.params.id;
     const name = req.params.name;
 
+  
+
 
 
     res.render('edit',{name : name, id : id});
@@ -211,7 +217,76 @@ app.post('/edit/Level/:name/:id', (req, res) => {
 
 
 
+// -------------------------login ------------------------
+app.get('/', function(req, res){
+    res.sendFile(__dirname + "/register.html");
+});
 
+
+
+app.post('/',function(req, res){
+    var name = req.body.username;
+    var mail = req.body.mail;
+    var password = req.body.password;
+
+
+fs.readFile('./users.json', 'utf-8', function(err, data) {
+	if (err) throw err
+
+	var arrayOfObjects = JSON.parse(data)
+	arrayOfObjects.push({
+		name: name,
+        mail: mail,
+        password : password
+	});
+
+    // console.log(arrayOfObjects);
+    
+    fs.writeFile('./users.json', JSON.stringify(arrayOfObjects), 'utf-8', function(err) {
+        if (err) throw err
+        console.log('Done!')
+        res.redirect('/AddStudent');
+
+        
+    })
+})
+    
+})
+
+
+app.get('/signIn', function(req, res){
+    res.sendFile(__dirname + "/index.html");
+});
+
+
+app.post('/signIn',function(req, res){
+    var name = req.body.username;
+    var password = req.body.password;
+
+
+fs.readFile('./users.json', 'utf-8', function(err, data) {
+	if (err) throw err
+
+	var arrayOfObjects = JSON.parse(data);
+	
+
+    console.log(arrayOfObjects);
+
+    arrayOfObjects.forEach(element => {
+        if (name == element.name && password == element.password ) {
+
+         res.redirect('/AddStudent');
+
+        }
+
+        
+    
+        
+    });
+    
+});
+    
+})
 
 
 
