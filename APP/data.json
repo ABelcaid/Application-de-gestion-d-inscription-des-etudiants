@@ -1,28 +1,51 @@
-[{
-    "name": "firstClass",
-    "classList": [{
-        "id": "41a3180c-570f-4546-b648-62ae5db8706e",
-        "firstName": "ABDERRAHIM",
-        "lastName": "BELCAID",
-        "dateOfBirth": "2020-04-10",
-        "gender": "Boy",
-        "guardian": "papa",
-        "phone": "06111111111",
-        "dateOfRegistration": "2020-04-09"
-    }]
-}, {
-    "name": "secondClass",
-    "classList": []
-}, {
-    "name": "thirdClass",
-    "classList": []
-}, {
-    "name": "fourthClass",
-    "classList": []
-}, {
-    "name": "fifthClass",
-    "classList": []
-}, {
-    "name": "sixthClass",
-    "classList": []
-}]
+[
+    {
+        "name": "firstClass",
+        "classList": [
+            {
+                "id": "f773c019-7d73-414c-af84-b25b52e603a3",
+                "firstName": "ABDERRAHIM",
+                "lastName": "BELCAID",
+                "address": "Inchaden",
+                "city": "Agadir",
+                "dateOfBirth": "2020-04-10",
+                "gender": "Boy",
+                "guardian": "medAmine",
+                "phone": "06111111111",
+                "dateOfRegistration": "2020-04-10"
+            },
+            {
+                "id": "1e9aa909-9dce-4acd-9a95-d8ca0c8d2e52",
+                "firstName": "noOne",
+                "lastName": "meAndmE",
+                "address": "belfaa",
+                "city": "baha",
+                "dateOfBirth": "2020-04-03",
+                "gender": "Boy",
+                "guardian": "papa",
+                "phone": "06000000009",
+                "dateOfRegistration": "2020-04-15"
+            }
+        ]
+    },
+    {
+        "name": "secondClass",
+        "classList": []
+    },
+    {
+        "name": "thirdClass",
+        "classList": []
+    },
+    {
+        "name": "fourthClass",
+        "classList": []
+    },
+    {
+        "name": "fifthClass",
+        "classList": []
+    },
+    {
+        "name": "sixthClass",
+        "classList": []
+    }
+]

@@ -73,10 +73,16 @@
                             <div class="sidebar-submenu">
                                 <ul>
 
-                                   <% for(var i of list){ %>
-                                        <li><a href="/Level/<%=i.name %>"><%= i.name %></a></li>
-                                   <% } %>
-                            
+
+                                    
+                                    <li><a href="/Level/firstClass">firstClass</a></li>
+                                    <li><a href="/Level/secondClass">secondClass</a></li>
+                                    <li><a href="/Level/thirdClass">thirdClass</a></li>
+                                    <li><a href="/Level/fourthClass">fourthClass</a></li>
+                                    <li><a href="/Level/fifthClass">fifthClass</a></li>
+                                    <li><a href="/Level/sixthClass">sixthClass</a></li>
+                                    
+
                                 </ul>
                             </div>
                         </li>
@@ -110,6 +116,17 @@
                                     <!-- <input type="date" class="form-control" placeholder="Date of birth *" value="" /> -->
                                 </div>
                                 <div class="form-group">
+                                    <input type="text" class="form-control" name="Address" placeholder="Address *" value="" />
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="City" placeholder="City *" value="" />
+                                </div>
+                               
+                
+                
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
                                     <select name="gender" class="form-control">
                                         <option class="hidden"  selected disabled>Gender *</option>
                                         <option>Boy</option>
@@ -118,10 +135,6 @@
 
                                     </select>
                                 </div>
-                
-                
-                            </div>
-                            <div class="col-md-6">
                                 <div class="form-group">
                                     <input type="text" class="form-control" name="guardian" placeholder="Guardian's name *" value="" />
                                 </div>

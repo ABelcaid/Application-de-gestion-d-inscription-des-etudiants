@@ -1,11 +1,4 @@
 
-
-
-
-
-
-
-
 /*jshint esversion: 6 */
 
 const express= require('express');
@@ -36,6 +29,13 @@ list=JSON.parse(jsonStudents);
 
 
 
+app.get('/AddStudent',function(req,res){
+    
+    // console.log(list);
+    
+    res.render('add');
+});
+
 
 // // Add Student   //
 app.post('/AddStudent',(req,res)=>{
@@ -47,6 +47,8 @@ app.post('/AddStudent',(req,res)=>{
             id : uuid.v4(),
             firstName :  req.body.firstName,
             lastName : req.body.lastName,
+            address : req.body.Address,
+            city : req.body.City,
             dateOfBirth : req.body.dateOfBirth,
             gender : req.body.gender,
             guardian : req.body.guardian,
@@ -60,15 +62,11 @@ app.post('/AddStudent',(req,res)=>{
     fs.writeFile('data.json',JSON.stringify(list),(err)=>{
     console.log(err);
 });
-res.render('add',{list});
+res.render('add');
 });
 
 
-app.get('/AddStudent',function(req,res){
-    // console.log(list);
-    
-    res.render('add',{list});
-});
+
 
 // Show level list --------------------
 
@@ -81,261 +79,136 @@ app.get('/Level/:name', function(req, res){
         if (list[i].name == lName) {
 
             currentList = list[i].classList;
-
-
-            // for (let s = 0; s < list[i].classList.length; s++) {
-
-            //     currentList = list[i].classList[s];
-                
-            //     // res.render('show',{currentList});
-
-                
-                
-            // }
-            // // console.log('yees');
-            
-                
         }
-     
-        
-        
     }
 
     // console.log(lName);
-    res.render('show',{list,currentList});
-
-    
+    res.render('show',{name :lName,currentList}); 
 });
 
 
 
 
-// app.get('/edit/:id',function(req,res){
-//     var  sID =req.params.id;
-//     // console.log(sID);
+// ----------------------------------delete element -------------------
+
+
+app.get('/delete/Level/:name/:id', (req, res) => {
     
+    const  id = req.params.id;
+    const name = req.params.name;
+
     
-//     for (let i = 0; i < list.length; i++) {
-        
-//         for (let j = 0; j < list[i].classList.length; j++) {
+    // console.log('req.params' + req.params);
+    let  tmp = [];
+
+    for (let i = 0; i < list.length; i++) {
+
+        if (list[i].name == name) {
+
+            for (let j = 0; j < list[i].classList.length; j++) {
+
+                if (id !== list[i].classList[j].id ) {
+
+                    tmp.push(list[i].classList[j]);
+                    
+                }
+                
+            }
             
-//             if (list[i].classList[j].id == sID) {
-                
-//                 currentList = list[i].classList[j];
+        }
 
-                
-                
-//             }
-            
-//         }
-
-
-
-//         // if (list[i].name == lName) {
-
-//         //     currentList = list[i].classList;
-
-
-//         //     // for (let s = 0; s < list[i].classList.length; s++) {
-
-//         //     //     currentList = list[i].classList[s];
-                
-//         //     //     // res.render('show',{currentList});
-
-                
-                
-//         //     // }
-//         //     // // console.log('yees');
-            
-                
-//         // }
-     
         
-        
-//     }
-
-//     console.log(currentList);
-//     // res.render('show',{list,currentList});
-
-//     res.render('edit',{id : sID});
-// });
-
-
-// app.post('/edit/:id',function(req,res){
-
-//     var  sID =req.params.id;
-
-    
-
-
-
-// })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-app.get('/Levelµµµµµµµ/delete/:id', (req, res) => {
-    const sID = req.params.id;
-    
-	const tmp = [{
-        "name": "firstClass",
-        "classList": []
-    }, {
-        "name": "secondClass",
-        "classList": []
-    }, {
-        "name": "thirdClass",
-        "classList": []
-    }, {
-        "name": "fourthClass",
-        "classList": []
-    }, {
-        "name": "fifthClass",
-        "classList": []
-    }, {
-        "name": "sixthClass",
-        "classList": []
-    }];
-	for (let i = 0; i < list.length; i++) {
-
-    for (let j = 0; j < list[i].classList.length; j++) {
-
-        if (sID !== list[i].classList[j].id) {
-
-			tmp.push(list[i].classList[j]);
-		}
         
     }
 
-		
-	}
-
-	list = tmp;
-    fs.writeFile('data.json',JSON.stringify(list),(err)=>{
-        console.log(err);
-    });
-    res.render('show',{list,currentList});
-
-	// res.redirect('/Addstudent');
+    for (let i = 0; i < list.length; i++) {
+        if (list[i].name == name) {
+            list[i].classList = tmp;
+            
+        }
+        
+    }
+    fs.writeFileSync('data.json', JSON.stringify(list, null, 4));
+    res.redirect('/Addstudent');
+    
 });
 
-// app.post('/edit/:id', (req, res) => {
-// 	const { id } = req.params;
-// 	const { title, country,local,desc,departements } = req.body;
 
-// 	let dataId;
-// 	for (let i = 0; i < data.length; i++) {
-// 		if (Number(id) === data[i].ID) {
-// 			dataId = i;
-// 		}
-// 	}
+app.get('/edit/Level/:name/:id', (req, res) =>{
 
-// 	data[dataId].Title = title;
-// 	data[dataId].Country = country;
-// 	data[dataId].local = local;
-// 	data[dataId].desc = desc;
-// 	data[dataId].departements= departements;
-
-// 	fs.writeFileSync('./data/series.json', JSON.stringify(data, null, 4));
-
-// 	res.redirect('/');
-// });
-
-// app.get('/delete/:id', (req, res) => {
-// 	const { id } = req.params;
-// 	console.log('req.params' + req.params);
-// 	const newData = [];
-// 	for (let i = 0; i < data.length; i++) {
-// 		if (Number(id) !== data[i].ID) {
-// 			newData.push(data[i]);
-// 		}
-// 	}
-
-// 	data = newData;
-// 	fs.writeFileSync('./data/series.json', JSON.stringify(data, null, 4));
-// 	res.redirect('/index');
-// });
-
-// app.get('/', function(req, res){
-//     res.sendFile(__dirname + "/register.html");
-// });
+    const  id = req.params.id;
+    const name = req.params.name;
 
 
 
-// app.post('/',function(req, res){
-//     var name = req.body.username;
-//     var mail = req.body.mail;
-//     var password = req.body.password;
+    res.render('edit',{name : name, id : id});
+});
+
+// ----------------------------Edit student info ---------------------------
 
 
-// fs.readFile('./users.json', 'utf-8', function(err, data) {
-// 	if (err) throw err
+app.post('/edit/Level/:name/:id', (req, res) => {
 
-// 	var arrayOfObjects = JSON.parse(data)
-// 	arrayOfObjects.push({
-// 		name: name,
-//         mail: mail,
-//         password : password
-// 	});
+    const  id = req.params.id;
+    const name = req.params.name;
 
-//     // console.log(arrayOfObjects);
+
+    var first_name = req.body.first_name;
+    var last_name = req.body.last_name;
+    var dateOfBirth = req.body.dateOfBirth;
+    var gender = req.body.gender;
+    var address = req.body.address;
+    var city = req.body.city;
+    var guardian = req.body.guardian;
+    var phone = req.body.phone;
+    // var className = req.body.className;
+    var dateOfRegistration = req.body.dateOfRegistration;
+
+
+    let k;
+
     
-//     fs.writeFile('./users.json', JSON.stringify(arrayOfObjects), 'utf-8', function(err) {
-//         if (err) throw err
-//         console.log('Done!')
-//         res.sendFile(__dirname + "/test.html");
 
+
+    for (let i = 0; i < list.length; i++) {
+
+        if (list[i].name == name) {
+
+            for (let j = 0; j < list[i].classList.length; j++) {
+
+                if (id === list[i].classList[j].id ) {
+
+                    k = j;
+
+                    
+                    
+                }
+                
+            }
+
+            list[i].classList[k].firstName = first_name;
+            list[i].classList[k].lastName = last_name;
+            list[i].classList[k].dateOfBirth = dateOfBirth;
+            list[i].classList[k].address = address;
+            list[i].classList[k].city = city;
+            list[i].classList[k].gender = gender;
+            list[i].classList[k].guardian = guardian;
+            list[i].classList[k].phone = phone;
+            list[i].classList[k].dateOfRegistration = dateOfRegistration;
+
+            
+        }
         
-//     })
-// })
-    
-// })
+    }
 
 
-// app.get('/signIn', function(req, res){
-//     res.sendFile(__dirname + "/index.html");
-// });
+    fs.writeFileSync('data.json', JSON.stringify(list, null, 4));
+	res.redirect('/Addstudent');
+});
 
 
-// app.post('/signIn',function(req, res){
-//     var name = req.body.username;
-//     var password = req.body.password;
 
 
-// fs.readFile('./users.json', 'utf-8', function(err, data) {
-// 	if (err) throw err
-
-// 	var arrayOfObjects = JSON.parse(data);
-	
-
-//     console.log(arrayOfObjects);
-
-//     arrayOfObjects.forEach(element => {
-//         if (name == element.name && password == element.password ) {
-
-//          res.sendFile(__dirname + "/test.html");
-
-//         }else
-//         res.sendFile(__dirname + "/error.html");
-
-        
-    
-        
-//     });
-    
-// });
-    
-// })
 
 
 

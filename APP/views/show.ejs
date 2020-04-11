@@ -72,17 +72,12 @@
                             </a>
                             <div class="sidebar-submenu">
                                 <ul>
-
-
-                                    
-                                    <li><a href="/Level/<%=i.name %>"><%= i.name %></a></li>
-                                    <li><a href="/Level/<%=i.name %>"><%= i.name %></a></li>
-                                    <li><a href="/Level/<%=i.name %>"><%= i.name %></a></li>
-                                    <li><a href="/Level/<%=i.name %>"><%= i.name %></a></li>
-                                    <li><a href="/Level/<%=i.name %>"><%= i.name %></a></li>
-                                    <li><a href="/Level/<%=i.name %>"><%= i.name %></a></li>
-                                    <li><a href="/Level/<%=i.name %>"><%= i.name %></a></li>
-                                    
+                                    <li><a href="/Level/firstClass">firstClass</a></li>
+                                    <li><a href="/Level/secondClass">secondClass</a></li>
+                                    <li><a href="/Level/thirdClass">thirdClass</a></li>
+                                    <li><a href="/Level/fourthClass">fourthClass</a></li>
+                                    <li><a href="/Level/fifthClass">fifthClass</a></li>
+                                    <li><a href="/Level/sixthClass">sixthClass</a></li>
                                     
 
                                 </ul>
@@ -130,9 +125,9 @@
                                     <td><%= i.phone %></td>
                                     <td><%= i.dateOfRegistration %></td>
                                     <td>
-                                        <button type="button" class="btn btn-success" data-target="#exampleModal"><a href="/edit/<%=i.id %>"><i
+                                        <button type="button" class="btn btn-success" data-target="#exampleModal"><a href="/edit/Level/<%=name%>/<%=i.id %>"><i
                                                     class="fas fa-edit"></i></a></button>
-                                        <button type="button" class="btn btn-danger" data-target="#exampleModal"><a href="/delete/<%=i.id %>"><i
+                                        <button type="button" class="btn btn-danger" data-target="#exampleModal"><a href="/delete/Level/<%=name%>/<%=i.id %>"><i
                                                     class="far fa-trash-alt"></i></a></button>
                                     </td>
                                 </tr>
