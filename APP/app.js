@@ -32,12 +32,26 @@ list=JSON.parse(jsonStudents);
 app.get('/AddStudent',function(req,res){
 
     var d = new Date(); 
-          
+    let t = 0; 
+
+    for (let i = 0; i < list.length; i++) {
+
+        for (let j = 0; j < list[i].classList.length; j++) {
+
+            t++;
+            
+            
+            
+        }
+        
+    }
+   
+    console.log(t);
     
     
     // console.log(list);
     
-    res.render('add',{y1 : d.getFullYear(), y2 :d.getFullYear() +1});
+    res.render('add',{total: t, y1 : d.getFullYear(), y2 :d.getFullYear() +1});
 });
 
 

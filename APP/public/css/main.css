@@ -1,4 +1,39 @@
 
+.cardContainer{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    
+
+}
+.card{
+
+    width: 250px;
+    height: 100px;
+    border: 1px solid black;
+    margin: 2%;
+}
+
+.d1{
+    
+    border: 1px solid red;
+    width: 20%;
+    height: 100%;
+}
+.d2{
+    
+    border: 1px solid blue;
+    width: 80%;
+    height: 100%;
+}
+
+
+
+
+
+
 .form{
     margin: 16%;
     background: #f8f9fa;
@@ -435,52 +470,8 @@ body {
     right: 17px;
 }
 
-/*--------------------------side-footer------------------------------*/
-/* 
-.sidebar-footer {
-    position: absolute;
-    width: 100%;
-    bottom: 0;
-    display: flex;
-}
 
-.sidebar-footer>a {
-    flex-grow: 1;
-    text-align: center;
-    height: 30px;
-    line-height: 30px;
-    position: relative;
-} */
-/* 
-.sidebar-footer>a .notification {
-    position: absolute;
-    top: 0;
-} */
 
-/* .badge-sonar {
-    display: inline-block;
-    background: #980303;
-    border-radius: 50%;
-    height: 8px;
-    width: 8px;
-    position: absolute;
-    top: 0;
-}
-
-.badge-sonar:after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    border: 2px solid #980303;
-    opacity: 0;
-    border-radius: 50%;
-    width: 100%;
-    height: 100%;
-    animation: sonar 1.5s infinite;
-} */
-
-/*--------------------------page-content-----------------------------*/
 
 .page-wrapper .page-content {
     display: inline-block;
@@ -599,4 +590,26 @@ body {
 .chiller-theme .sidebar-wrapper .sidebar-menu .header-menu span {
     color: #6c7b88;
 }
+
+
+
+
+.cardContainer{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    
+
+}
+.card{
+    
+
+    width: 250px;
+    height: 100px;
+    margin: 0%  2%  0%  2%;
+}
+
+
 
