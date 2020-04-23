@@ -80,7 +80,8 @@ app.post('/AddStudent',(req,res)=>{
     fs.writeFile('data.json',JSON.stringify(list),(err)=>{
     console.log(err);
 });
-res.render('add');
+//res.render('add');
+	res.redirect('/Addstudent');
 });
 
 
